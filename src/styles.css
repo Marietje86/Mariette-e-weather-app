@@ -48,11 +48,10 @@ h3 {
 
 #input-search {
   display: block;
-  margin: 50px auto;
+  margin: 45px auto;
   text-align: center;
   padding: 5px;
   width: 300;
-  text-align: center;
   border: 1px solid rgb(201, 199, 202);
   box-shadow: #554d4d;
   border-radius: 15px;
