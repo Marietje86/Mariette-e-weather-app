@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=New+Tegomin&family=Source+Sans+Pro:ital,wght@1,200&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Mariëtte's Weather App</title>
+</head>
+
+<body>
+    <img src="images/Aruba.jpg" height="450" alt="Aruba" />
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                ☀️
+            </div>
+            <div class="col-4">
+                🌧
+            </div>
+        </div>
+    </div>
+    <h1>
+        Let's see what weather we can expect🤔
+    </h1>
+    <div class="container">
+        <form class="search" id="city-search">
+            <div class="row">
+                <div class="offset-3 col-2">
+                    <input type="search" placeholder="Search by city 🔍" autofocus="on" id="input-search" />
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="search 🌍" id="button-search" />
+                </div>
+                <div class="col-3">
+                    <button type="button" id="current-search">current👈🏽</button>
+                </div>
+            </div>
+    </div>
+    </form>
+    <h2 id="temperature">
+        26
+        <a href="#" id="celsius">°C</a> |
+        <a href="#" id="fahrenheit">°F</a>
+    </h2>
+    <h3 id="show-city">
+        <strong> 28ºC in Aruba</strong>
+        Sunny☀️🏝
+    </h3>
+    <br />
+    <h4>
+        Wednesday, 20:14
+    </h4>
+    <br />
+    <ul>
+        <li>
+            wind: E 16km/hr
+        </li>
+        <li>
+            humidity: 75%
+        </li>
+        <li>
+            precipitation: 0cm
+        </li>
+    </ul>
+    <br />
+    <div class="row align-items-center">
+        <div class="col-2">
+            Tomorrow⛅️
+            <p>27º</p>
+        </div>
+        <div class="col-2">
+            Thursday🌧
+            <p>26º</p>
+        </div>
+        <div class="col-2">
+            Friday☀️
+            <p>28º</p>
+        </div>
+        <div class="col-2">
+            Saturday☀️
+            <p>29º</p>
+        </div>
+        <div class="col-2">
+            Sunday⛅️
+            <p>27º</p>
+        </div>
+    </div>
+    <br />
+    <footer>
+        <strong>
+            Weather engine brought to you by Mariëtte Everitz💁🏽‍♀️
+        </strong>
+    </footer>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
