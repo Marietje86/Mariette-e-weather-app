@@ -48,7 +48,7 @@ h3 {
 
 #input-search {
   display: block;
-  margin: 45px auto;
+  margin: 50px auto;
   text-align: center;
   padding: 5px;
   width: 300;
@@ -59,7 +59,7 @@ h3 {
 }
 
 #button-search {
-  margin: 50px auto;
+  margin: 55px 70px auto;
   display: block;
   color: rgba(28, 28, 143, 0.897);
   background: #e2b82f;
@@ -76,7 +76,7 @@ button-search.hover {
 }
 
 #current-search {
-  margin: 50px -5px auto;
+  margin: 55px -70px auto;
   display: block;
   color: rgba(28, 28, 143, 0.897);
   background: rgba(49, 231, 222, 0.897);
