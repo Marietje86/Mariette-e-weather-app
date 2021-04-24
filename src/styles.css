@@ -1,6 +1,10 @@
 body {
+  max-width: 600px;
+  margin: 40px auto;
   font-family: "Source Sans Pro", sans-serif;
-  padding: 0 20px;
+  padding: 20px;
+  border: 1px solid #554d4d;
+  border-radius: 5px;
   background: linear-gradient(0.25turn, #5c96af, #b0c0a3, #b4b367, #975959);
 }
 
