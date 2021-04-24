@@ -1,8 +1,8 @@
 body {
-  max-width: 800px;
-  margin: 60px auto;
   font-family: "Source Sans Pro", sans-serif;
   padding: 20px;
+  max-width: 800px;
+  margin: 60px auto;
   border: 1px solid #554d4d;
   border-radius: 5px;
   background: linear-gradient(0.25turn, #5c96af, #b0c0a3, #b4b367, #975959);
@@ -48,6 +48,7 @@ h3 {
   color: salmon;
   display: block;
   text-align: left;
+  margin-bottom: 0;
 }
 
 #input-search {
@@ -63,7 +64,7 @@ h3 {
 }
 
 #button-search {
-  margin: 55px 70px auto;
+  margin: 55px 100px auto;
   display: block;
   color: rgba(28, 28, 143, 0.897);
   background: #e2b82f;
@@ -80,7 +81,7 @@ button-search.hover {
 }
 
 #current-search {
-  margin: 55px -70px auto;
+  margin: 55px 0px auto;
   display: block;
   color: rgba(28, 28, 143, 0.897);
   background: rgba(49, 231, 222, 0.897);
@@ -93,16 +94,23 @@ button-search.hover {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
+}
+
+.weather-app-wrapper {
+  list-style: none;
+  color: rgb(82, 10, 10);
   right: 0;
+  font-size: 15px;
   margin: -55px auto;
   display: block;
-  position: absolute;
   width: 30%;
-  color: rgb(82, 10, 10);
+  position: absolute;
 }
 
 footer {
-  color: rgb(92, 157, 187);
-  font-size: smaller;
+  color: rgb(9, 29, 39);
+  font-size: small;
   text-align: right;
 }
