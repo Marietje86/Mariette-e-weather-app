@@ -23,21 +23,26 @@ function formatDate(date) {
 let now = new Date();
 let h4 = document.querySelector("h4");
 h4.innerHTML = formatDate(now);
-//search//
+
+//covertion//
 function convertCelsius(event) {
   event.preventDefault();
-  let temperatureConvert = document.querySelector("#temperature");
-  temperatureConvert.innerHTML = 27;
+  let celciusConvert = document.querySelector("#temperature");
+  celciusConvert.innerHTML = Math.round(celsiusTemperature);
 }
 function convertFahrenheit(event) {
   event.preventDefault();
   let temperatureConvert = document.querySelector("#temperature");
-  temperatureConvert.innerHTML = 80.6;
+  let fahrenheitTemperature = `(celsiusTemperature)* 9 ) /5* 32`;
+  temperatureConvert.innerHTML = Math.round(fahrenheitTemperature);
 }
+let celsiusTemperature = null;
+
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", convertCelsius);
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertFahrenheit);
+
 //search by city
 let search = document.querySelector("#city-search");
 function citySearch(event) {
@@ -52,13 +57,17 @@ function citySearch(event) {
 //temperature
 function showTemperature(response) {
   let temperatureNow = Math.round(response.data.main.temp);
+   let fahrenheitTemperature = `(temperatureNow)* 9 ) /5* 32`;
+   temperatureConvert.innerHTML = Math.round(fahrenheitTemperature);
   let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = `It is ${temperatureNow}ºC in ${response.data.name}`;
+  currentTemp.innerHTML = `It is ${temperatureNow}ºC/${fahrenheitTemperature}ºF in ${response.data.name}`;
   let descriptionElement = document.querySelector(".description");
   descriptionElement.innerHTML = response.data.weather[0].description;
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
 }
 search.addEventListener("submit", citySearch);
