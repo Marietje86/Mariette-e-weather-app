@@ -21,8 +21,8 @@ function formatDate(date) {
   return `${currentDate}, ${hours}:${minutes}`;
 }
 let now = new Date();
-let timeElement = document.querySelector("time");
-timeElement.innerHTML = formatDate(now);
+let h4 = document.querySelector("h4");
+h4.innerHTML = formatDate(now);
 //search//
 function convertCelsius(event) {
   event.preventDefault();
