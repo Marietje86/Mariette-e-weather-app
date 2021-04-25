@@ -80,19 +80,6 @@ button-search.hover {
   color: rgb(207, 40, 152);
 }
 
-#current-search {
-  margin: 55px 0px auto;
-  display: block;
-  color: rgba(28, 28, 143, 0.897);
-  background: rgba(49, 231, 222, 0.897);
-  border: 2px solid rgb(212, 170, 226);
-  width: 200;
-  border-radius: 5px;
-  transition: 200ms all ease-in-out;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 ul {
   margin: 0;
   padding: 0;

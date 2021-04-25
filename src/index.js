@@ -25,7 +25,6 @@ let now = new Date();
 let h4 = document.querySelector("h4");
 h4.innerHTML = formatDate(now);
 //search//
-//bonus//
 function convertCelsius(event) {
   event.preventDefault();
   let temperatureConvert = document.querySelector("#temperature");
@@ -50,6 +49,12 @@ function citySearch(event) {
   showCityTemp.innerHTML = `in ${cityInput.value}`;
    let descriptionElement = document.querySelector("#description");
    descriptionElement.innerHTML = response.data.weather[0].description;
+    let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  let precipitationElement = document.querySelector("#precipitation");
+  precipitationElement.innerHTML = response.data.main.precipitation;
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
@@ -60,19 +65,8 @@ function showTemperature(response) {
   let temperatureNow = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temperature");
   currentTemp.innerHTML = `It is ${temperatureNow}ºC`;
-  let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.main.humidity;
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-  let precipitationElement = document.querySelector("#precipitation");
-  precipitationElement.innerHTML = response.data.main.precipitation;
+
 }
 
 search.addEventListener("submit", citySearch);
-
-  axios.get(apiUrl).then(showTemperature);
-function getGps() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-currentButton.addEventListener("click", getGps);
 
