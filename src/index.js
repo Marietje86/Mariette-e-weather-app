@@ -7,9 +7,8 @@ function formatDate(date) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
-
   let currentDate = days[date.getDay()];
   let hours = date.getHours();
   if (hours < 10) {
@@ -39,7 +38,6 @@ let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", convertCelsius);
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertFahrenheit);
-
 //search by city
 let search = document.querySelector("#city-search");
 function citySearch(event) {
@@ -47,14 +45,6 @@ function citySearch(event) {
   let cityInput = document.querySelector("#input-search");
   let showCityTemp = document.querySelector("#show-city");
   showCityTemp.innerHTML = `in ${cityInput.value}`;
-   let descriptionElement = document.querySelector("#description");
-   descriptionElement.innerHTML = response.data.weather[0].description;
-    let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.main.humidity;
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-  let precipitationElement = document.querySelector("#precipitation");
-  precipitationElement.innerHTML = response.data.main.precipitation;
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
@@ -64,9 +54,12 @@ function showTemperature(response) {
   console.log(response.data);
   let temperatureNow = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = `It is ${temperatureNow}ºC`;
-
+  currentTemp.innerHTML = `It is ${temperatureNow}ºC in ${response.data.name}`;
+  let descriptionElement = document.querySelector(".description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
-
 search.addEventListener("submit", citySearch);
-
