@@ -25,7 +25,6 @@ let now = new Date();
 let h4 = document.querySelector("h4");
 h4.innerHTML = formatDate(now);
 //search//
-
 //bonus//
 function convertCelsius(event) {
   event.preventDefault();
@@ -48,27 +47,32 @@ function citySearch(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#input-search");
   let showCityTemp = document.querySelector("#show-city");
-  showCityTemp.innerHTML = `${cityInput.value}`;
+  showCityTemp.innerHTML = `in ${cityInput.value}`;
+   let descriptionElement = document.querySelector("#description");
+   descriptionElement.innerHTML = response.data.weather[0].description;
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
+//temperature
 function showTemperature(response) {
+  console.log(response.data);
   let temperatureNow = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = `${temperatureNow}ºC`;
+  currentTemp.innerHTML = `It is ${temperatureNow}ºC`;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  let precipitationElement = document.querySelector("#precipitation");
+  precipitationElement.innerHTML = response.data.main.precipitation;
 }
+
 search.addEventListener("submit", citySearch);
-// bonus search
-let currentButton = document.querySelector("#current-search");
-function showPosition(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
   axios.get(apiUrl).then(showTemperature);
-}
 function getGps() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 currentButton.addEventListener("click", getGps);
+
