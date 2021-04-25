@@ -18,7 +18,7 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${currentDate}, ${hours}:${minutes}`;
+  return `Latest update: ${currentDate}, ${hours}:${minutes}`;
 }
 let now = new Date();
 let h4 = document.querySelector("h4");
@@ -51,7 +51,6 @@ function citySearch(event) {
 }
 //temperature
 function showTemperature(response) {
-  console.log(response.data);
   let temperatureNow = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temperature");
   currentTemp.innerHTML = `It is ${temperatureNow}ºC in ${response.data.name}`;
