@@ -67,6 +67,7 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let iconElement = document.querySelector("#icon");
-  iconElement.innerHTML = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  icon.setAttribute("alt", data.main.temp + "&deg;");
 }
 search.addEventListener("submit", citySearch);

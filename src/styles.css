@@ -85,6 +85,29 @@ ul {
   padding: 0;
 }
 
+#icon {
+  margin: 0 auto;
+  display: block;
+}
+
+.forecasticon {
+  font-size: 15px;
+  padding: 0;
+  list-style: none;
+  margin-top: 0;
+}
+.forecasttemp {
+  font-size: 12px;
+  list-style: none;
+  margin-top: 10;
+}
+
+.forecastday {
+  font-size: 12px;
+  list-style: none;
+  margin-bottom: 0;
+}
+
 .weather-app-wrapper {
   list-style: none;
   color: rgb(82, 10, 10);
