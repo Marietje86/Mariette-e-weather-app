@@ -92,6 +92,7 @@ ul {
 
 .description {
   text-align: center;
+  text-transform: capitalize;
 }
 
 .weather-forecast {

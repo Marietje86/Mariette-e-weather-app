@@ -63,29 +63,20 @@ function displayForecast(response) {
 forecastElement.innerHTML = forecastHTML;
 }
 
-//covertion//
+//celcius
 function convertCelsius(event) {
   event.preventDefault();
   let celciusConvert = document.querySelector("#temperature");
   celciusConvert.innerHTML = Math.round(celsiusTemperature);
 }
-function convertFahrenheit(event) {
-  event.preventDefault();
-  let temperatureConvert = document.querySelector("#temperature");
-  let fahrenheitTemperature = `(celsiusTemperature)* 9 ) /5* 32`;
-  temperatureConvert.innerHTML = Math.round(fahrenheitTemperature);
-}
-let celsiusTemperature = null;
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", convertCelsius);
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", convertFahrenheit);
 
 //search by city
 let search = document.querySelector("#city-search");
 function citySearch(event) {
-  event.preventDefault();
+  event.preventDefault("Barcelona");
   let cityInput = document.querySelector("#input-search");
   let showCityTemp = document.querySelector("#show-city");
   showCityTemp.innerHTML = `${cityInput.value}`;
@@ -104,9 +95,8 @@ function getForecast(coordinates) {
 //temperature
 function showTemperature(response) {
   let temperatureNow = Math.round(response.data.main.temp);
-   let fahrenheitTemperature = Math.round((temperatureNow)* 9 /5);
   let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = `It is ${temperatureNow}ºC/${fahrenheitTemperature}ºF in ${response.data.name}`;
+  currentTemp.innerHTML = `It is ${temperatureNow}ºC in ${response.data.name}`;
   let descriptionElement = document.querySelector(".description");
   descriptionElement.innerHTML = response.data.weather[0].description;
   let humidityElement = document.querySelector("#humidity");
@@ -114,11 +104,10 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let iconElement = document.querySelector("#icon");
-icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  icon.setAttribute("alt", data.main.temp + "&deg;");
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", data.main.temp + "&deg;");
 
   getForecast(response.data.coord);
 }
 search.addEventListener("submit", citySearch);
 
-displayForecast();
