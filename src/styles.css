@@ -47,7 +47,7 @@ h2 {
 h3 {
   color: salmon;
   display: block;
-  text-align: left;
+  text-align: center;
   margin-bottom: 0;
 }
 
@@ -88,6 +88,10 @@ ul {
 #icon {
   margin: 0 auto;
   display: block;
+}
+
+.description {
+  text-align: center;
 }
 
 .forecastday {
