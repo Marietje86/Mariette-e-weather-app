@@ -57,7 +57,7 @@ function citySearch(event) {
 //temperature
 function showTemperature(response) {
   let temperatureNow = Math.round(response.data.main.temp);
-   let fahrenheitTemperature = `(temperatureNow)* 9 ) /5* 32`;
+   let fahrenheitTemperature = Math.round((temperatureNow)* 9 /5);
   let currentTemp = document.querySelector("#temperature");
   currentTemp.innerHTML = `It is ${temperatureNow}ºC/${fahrenheitTemperature}ºF in ${response.data.name}`;
   let descriptionElement = document.querySelector(".description");
