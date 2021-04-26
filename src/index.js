@@ -24,6 +24,27 @@ let now = new Date();
 let h4 = document.querySelector("h4");
 h4.innerHTML = formatDate(now);
 
+//forecast
+function displayForecast() {
+  let forecastElement  = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row align-items-center">`;
+  let forecastDays = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  forecastDays.forEach(function (day) {
+  forecastHTML = forecastHTML + `    
+  <div class="col-2">
+        <div class="forecastday">${day} </div>
+        <div class="forecasticon"><img src="http://openweathermap.org/img/wn/10d@2x.png" 
+        width=60px alt=""></div>
+        <span class="forecast-max-temp">27°</span> |
+        <span class="forecast-min-temp">10°</span>
+        </div>
+        </div>`;
+  });
+   forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
 //covertion//
 function convertCelsius(event) {
   event.preventDefault();
@@ -71,3 +92,5 @@ icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weath
   icon.setAttribute("alt", data.main.temp + "&deg;");
 }
 search.addEventListener("submit", citySearch);
+
+displayForecast();
