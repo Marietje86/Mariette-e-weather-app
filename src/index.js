@@ -44,23 +44,30 @@ return castDays[day];
 //forecast
 function displayForecast(response) {
   let forecastDaily = response.data.daily;
-  let forecastElement  = document.querySelector("#forecast");
-
+  let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row align-items-center">`;
   forecastDaily.forEach(function (forecastDay, index) {
-    if (index < 5){
-  forecastHTML = forecastHTML + `    
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `    
   <div class="col-2">
-        <div class="forecastday">${formatDay(forecastDay.dt)} </div>
-        <div class="forecasticon"><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon} @2x.png" 
+        <div class="forecastday">${formatDays(forecastDay.dt)} </div>
+        <div class="forecasticon"><img src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" 
         width=60px alt=""></div>
-        <span class="forecast-max-temp">${Math.round(forecastDay.temp.max)}°</span> |
-        <span class="forecast-min-temp">${Math.round(forecastDay.temp.min)}°</span>
-        </div>
+        <span class="forecast-max-temp">${Math.round(
+          forecastDay.temp.max
+        )}°</span> |
+        <span class="forecast-min-temp">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
         </div>`;
-  }});
-   forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 //celcius
@@ -104,10 +111,13 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let iconElement = document.querySelector("#icon");
-iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  iconElement.setAttribute("alt", data.main.temp + "&deg;");
-
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.main.temp + "&deg;");
   getForecast(response.data.coord);
 }
+
 search.addEventListener("submit", citySearch);
 
