@@ -25,7 +25,8 @@ let h4 = document.querySelector("h4");
 h4.innerHTML = formatDate(now);
 
 //forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement  = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row align-items-center">`;
@@ -71,10 +72,18 @@ function citySearch(event) {
   let cityInput = document.querySelector("#input-search");
   let showCityTemp = document.querySelector("#show-city");
   showCityTemp.innerHTML = `${cityInput.value}`;
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "ce4afc8744a0f1fef5bae5142b3fbd94";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
+
+//coordinates
+function getForecast(coordinates) {
+  let apiKey = "ce4afc8744a0f1fef5bae5142b3fbd94";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //temperature
 function showTemperature(response) {
   let temperatureNow = Math.round(response.data.main.temp);
@@ -90,6 +99,8 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
 icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   icon.setAttribute("alt", data.main.temp + "&deg;");
+
+  getForecast(response.data.coord);
 }
 search.addEventListener("submit", citySearch);
 
