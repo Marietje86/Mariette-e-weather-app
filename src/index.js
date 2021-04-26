@@ -47,17 +47,18 @@ function displayForecast(response) {
   let forecastElement  = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row align-items-center">`;
-  forecastDaily.forEach(function (forecastDay) {
+  forecastDaily.forEach(function (forecastDay, index) {
+    if (index < 5){
   forecastHTML = forecastHTML + `    
   <div class="col-2">
         <div class="forecastday">${formatDay(forecastDay.dt)} </div>
         <div class="forecasticon"><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon} @2x.png" 
         width=60px alt=""></div>
-        <span class="forecast-max-temp">${forecastDay.temp.max}°</span> |
-        <span class="forecast-min-temp">${forecastDay.temp.min}°</span>
+        <span class="forecast-max-temp">${Math.round(forecastDay.temp.max)}°</span> |
+        <span class="forecast-min-temp">${Math.round(forecastDay.temp.min)}°</span>
         </div>
         </div>`;
-  });
+  }});
    forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 }
