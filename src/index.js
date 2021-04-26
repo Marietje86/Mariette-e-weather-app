@@ -76,7 +76,7 @@ celsius.addEventListener("click", convertCelsius);
 //search by city
 let search = document.querySelector("#city-search");
 function citySearch(event) {
-  event.preventDefault("Barcelona");
+  event.preventDefault();
   let cityInput = document.querySelector("#input-search");
   let showCityTemp = document.querySelector("#show-city");
   showCityTemp.innerHTML = `${cityInput.value}`;
