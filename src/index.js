@@ -83,12 +83,15 @@ celsius.addEventListener("click", convertCelsius);
 //search by city
 let search = document.querySelector("#city-search");
 function citySearch(event) {
-  event.preventDefault();
+  event.preventDefault("Barcelona");
   let cityInput = document.querySelector("#input-search");
   let showCityTemp = document.querySelector("#show-city");
   showCityTemp.innerHTML = `${cityInput.value}`;
+  searchCity(cityInput.value);
+}
+function searchCity(city) {
   let apiKey = "ce4afc8744a0f1fef5bae5142b3fbd94";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -118,6 +121,7 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.main.temp + "&deg;");
   getForecast(response.data.coord);
 }
+searchCity("Barcelona");
 
 search.addEventListener("submit", citySearch);
 
